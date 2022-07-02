@@ -13,4 +13,8 @@ resources:
   kind: App
   path: github.com/ylinyang/kubebuilder-webhook/api/v1
   version: v1
+  webhooks:
+    defaulting: true
+    validation: true
+    webhookVersion: v1
 version: "3"

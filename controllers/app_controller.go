@@ -22,13 +22,14 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 
-	testv1 "github.com/ylinyang/kubebuilder-webhook/api/v1"
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
+
+	testv1 "github.com/ylinyang/kubebuilder-webhook/api/v1"
 )
 
 // AppReconciler reconciles a App object
@@ -55,7 +56,7 @@ func (r *AppReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.R
 	app := &testv1.App{}
 
 	if err := r.Get(ctx, req.NamespacedName, app); err != nil {
-		return ctrl.Result{}, err
+		return ctrl.Result{}, client.IgnoreNotFound(err)
 	}
 	labels := map[string]string{"app": "nginx"}
 	deployment := &appsv1.Deployment{

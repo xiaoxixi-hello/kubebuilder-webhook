@@ -3,5 +3,6 @@ kind: App
 metadata:
   name: app-sample
 spec:
+  # TODO(user): Add fields here
   images: nginx
-  replicas: 2
+  replicas: 10
