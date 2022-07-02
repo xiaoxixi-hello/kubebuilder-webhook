@@ -1,0 +1,7 @@
+apiVersion: test.demo.io/v1
+kind: App
+metadata:
+  name: app-sample
+spec:
+  images: nginx
+  replicas: 2

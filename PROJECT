@@ -1,0 +1,16 @@
+domain: demo.io
+layout:
+- go.kubebuilder.io/v3
+projectName: kubebuilder-webhook
+repo: github.com/ylinyang/kubebuilder-webhook
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: demo.io
+  group: test
+  kind: App
+  path: github.com/ylinyang/kubebuilder-webhook/api/v1
+  version: v1
+version: "3"
